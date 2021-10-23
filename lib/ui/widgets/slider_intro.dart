@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/utils/res/colors.dart';
@@ -61,14 +62,31 @@ class _SliderIntroState extends State<SliderIntro> {
   }
 
   Widget slider() {
-    return PageView.builder(
-      scrollDirection: Axis.horizontal,
-      controller: PageController(initialPage: 0, keepPage: false),
-      itemBuilder: (context, index) => lottieList[index],
-      onPageChanged: (index) {
-        setState(() => _currentPage = index);
-      },
-      itemCount: lottieList.length,
+    return Column(
+      children: [
+        Flexible(
+          flex: 8,
+          child: PageView.builder(
+            scrollDirection: Axis.horizontal,
+            controller: PageController(initialPage: 0, keepPage: false),
+            itemBuilder: (context, index) => lottieList[index],
+            onPageChanged: (index) {
+              setState(() => _currentPage = index);
+            },
+            itemCount: lottieList.length,
+          ),
+        ),
+        Flexible(
+            flex: 2,
+            child: DotsIndicator(
+              decorator: DotsDecorator(
+                  activeColor: MAIN_COLOR_DARKER,
+                  activeSize: const Size(18.0, 9.0),
+                  activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0))),
+              dotsCount: lottieList.length,
+              position: _currentPage.toDouble(),
+            ))
+      ],
     );
   }
 
