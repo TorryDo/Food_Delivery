@@ -12,7 +12,7 @@ class LogoScreen extends StatelessWidget {
       color: Colors.white,
       child: Center(
         child: SvgPicture.asset(
-          'assets/icons/ic_bread.svg',
+          'assets/icons/ic_applogo.svg',
           semanticsLabel: 'app logo',
           width: logoSize,
           height: logoSize,

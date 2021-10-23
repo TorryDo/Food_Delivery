@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/ui/splashScreen/logo_screen.dart';
+import 'ui/welcome_screen/first_launch_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LogoScreen(),
+      home: const FirstLaunchScreen(),
     );
   }
 }
