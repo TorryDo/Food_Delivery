@@ -32,14 +32,21 @@ class TextFieldWithLabel extends StatelessWidget {
           ),
           SizedBox(height: _SPACE),
           TextField(
+            cursorColor: MAIN_COLOR_DARKER,
             maxLines: 1,
             obscureText: isObscured ?? false,
             decoration: InputDecoration(
                 hintText: hint,
                 hintStyle: TextStyle(fontSize: _HINT_SIZE, color: _HINT_COLOR),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(_BORDER_RADIUS),
+                  borderSide: const BorderSide(color: MAIN_COLOR_DARKER,width: 2.0)
+                ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(_BORDER_RADIUS)
-                )),
+                    borderRadius: BorderRadius.circular(_BORDER_RADIUS),
+                )
+
+            ),
           )
         ],
       ),

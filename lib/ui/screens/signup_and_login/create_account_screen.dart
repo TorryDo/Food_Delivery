@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/ui/widgets/appbar_welcome.dart';
 import 'package:food_delivery/ui/widgets/textfield_with_label.dart';
+import 'package:food_delivery/ui/widgets/three_buttons.dart';
 import 'package:food_delivery/ui/widgets/title_and_description.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
 
@@ -39,7 +40,7 @@ class CreateAccountScreen extends StatelessWidget {
                   description: CREATE_ACCOUNT_DESCRIPTION),
             ),
             Flexible(
-                flex: 7,
+                flex: 5,
                 child: Container(
                     // color: Colors.redAccent,
                     margin: EdgeInsets.symmetric(
@@ -61,11 +62,10 @@ class CreateAccountScreen extends StatelessWidget {
                         const SizedBox(height: PADDING_VERTICALLY_XXL)
                       ],
                     ))),
-            Flexible(
+            const Flexible(
                 flex: 3,
-                child: Container(
-                  color: Colors.grey,
-                ))
+                child: ThreeButtons()
+            )
           ],
         ),
       ),

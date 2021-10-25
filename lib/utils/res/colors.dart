@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
+const THEME_COLOR = Color(0xFFF8FBFF);
 
 const MAIN_COLOR = Color(0xFFF88527);
 const MAIN_COLOR_DARKER = Color(0xFFFD7850);
