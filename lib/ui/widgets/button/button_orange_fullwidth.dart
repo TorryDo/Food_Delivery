@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 
 class ButtonOrangeFullWidth extends StatelessWidget {
-  const ButtonOrangeFullWidth({required this.text, this.onCLick, Key? key}) : super(key: key);
 
   final Function? onCLick;
+
+  const ButtonOrangeFullWidth({required this.text, this.onCLick, Key? key}) : super(key: key);
+
 
   final String text;
 

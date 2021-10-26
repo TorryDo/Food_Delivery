@@ -45,3 +45,17 @@ const BORDER_RADIUS = 15.0;
 const BORDER_RADIUS_L = 20.0;
 const BORDER_RADIUS_XL = 25.0;
 const BORDER_RADIUS_XXL = 35.0;
+
+const ICON_SIZE_XXS = 15.0;
+const ICON_SIZE_XS= 20.0;
+const ICON_SIZE_S = 23.0;
+const ICON_SIZE = 25.0;
+const ICON_SIZE_L = 40.0;
+const ICON_SIZE_XL = 45.0;
+const ICON_SIZE_XXL = 50.0;
+
+const CIRCLE_BUTTON_SIZE = 30.0;
+
+/// rarely used
+
+const TOP_BAR_HEIGHT = 80.0;

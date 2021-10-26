@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/ui/screens/signup_and_login/create_account_screen.dart';
+import 'package:food_delivery/ui/screens/signup_and_login/signup_screen.dart';
+import 'package:food_delivery/ui/screens/welcome_screen/first_launch_screen.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: THEME_COLOR
       ),
-      home: const CreateAccountScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/ui/widgets/appbar_welcome.dart';
-import 'package:food_delivery/ui/widgets/button_orange_fullwidth.dart';
+import 'package:food_delivery/ui/widgets/button/button_orange_fullwidth.dart';
 import 'package:food_delivery/ui/widgets/slider_intro.dart';
-import 'package:food_delivery/ui/widgets/text_orange_bold.dart';
+import 'package:food_delivery/ui/widgets/text/text_orange_bold.dart';
 
 
 class FirstLaunchScreen extends StatelessWidget {
