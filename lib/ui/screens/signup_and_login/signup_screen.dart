@@ -30,24 +30,19 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-        create: (_) => AuthRepository(), child: _signUpScreen());
+    return _signUpScreen();
   }
 
   Widget _signUpScreen() {
     return Material(
       child: SafeArea(
-        child: BlocProvider(
-          create: (context) =>
-              SignUpBloc(authRepo: context.read<AuthRepository>()),
-          child: Column(
-            children: [
-              _topAppBar(),
-              _titleAndDescription(),
-              _form(),
-              _bottomButtons()
-            ],
-          ),
+        child: Column(
+          children: [
+            _topAppBar(),
+            _titleAndDescription(),
+            _form(),
+            _bottomButtons()
+          ],
         ),
       ),
     );
@@ -66,7 +61,7 @@ class SignUpScreen extends StatelessWidget {
     return Flexible(
         flex: 5,
         child: Container(
-            // color: Colors.redAccent,
+          // color: Colors.redAccent,
             margin: EdgeInsets.symmetric(
                 horizontal: _PADDING_HORIZONTALLY,
                 vertical: _PADDING_VERTICALLY),
@@ -89,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
         onChanged: (notNullString) =>
             context.read<SignUpBloc>().add(SignUpEmailChanged(notNullString)),
         validator: (nullableString) =>
-            state.isEmailValid ? null : 'email isnt valid',
+        state.isEmailValid ? null : 'email isnt valid',
       );
     });
   }
@@ -99,23 +94,26 @@ class SignUpScreen extends StatelessWidget {
       return TextFieldWithLabel(
         label: _PASSWORD_LABEL,
         hint: _PASSWORD_HINT,
-        onChanged: (notNullString) => context
-            .read<SignUpBloc>()
-            .add(SignUpPasswordChanged(notNullString)),
+        isObscured: true,
+        onChanged: (notNullString) =>
+            context
+                .read<SignUpBloc>()
+                .add(SignUpPasswordChanged(notNullString)),
         validator: (nullableString) =>
-            state.isPasswordValid ? null : 'password isnt valid',
+        state.isPasswordValid ? null : 'password isnt valid',
       );
     });
   }
 
   Widget _bottomButtons() {
-    return BlocBuilder(builder: (context, state) {
+    return BlocBuilder<SignUpBloc, SignUpState>(builder: (context, state) {
       return Flexible(
           flex: 3,
           child: ThreeButtons(buttonOrangeClicked: () {
             /// signup func
             context.read<SignUpBloc>().add(SignUpSubmitted());
-          }));
+          })
+      );
     });
   }
 }
