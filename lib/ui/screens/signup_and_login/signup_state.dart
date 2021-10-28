@@ -2,11 +2,11 @@ import 'package:food_delivery/ui/screens/signup_and_login/form_submission_status
 
 class SignUpState {
   final String email;
-  bool get isEmailValid => email.length > 3; // modifiy later
-
   final String password;
-  bool get isPasswordValid => email.length > 6; // modifiy later
   final FormSubmissionStatus formStatus;
+
+  bool get isEmailValid => email.length > 3; // modifiy later
+  bool get isPasswordValid => email.length > 6; // modifiy later
 
   SignUpState(
       {this.email = '',

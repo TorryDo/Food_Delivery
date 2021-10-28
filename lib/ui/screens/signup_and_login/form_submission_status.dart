@@ -6,6 +6,7 @@ class InitialFormStatus extends FormSubmissionStatus {
   const InitialFormStatus();
 }
 
+// for display loading view
 class FormSubmitting extends FormSubmissionStatus {}
 
 class FormSubmissionSuccess extends FormSubmissionStatus{}

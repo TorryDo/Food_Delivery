@@ -6,7 +6,7 @@ import 'package:food_delivery/utils/res/dimens.dart';
 class TextFieldWithLabel extends StatelessWidget {
   final bool? isObscured;
   final Function(String)? onChanged;
-  final Function(String?)? validator;
+  // final Function(String?)? validator;
 
   const TextFieldWithLabel({
     Key? key,
@@ -14,7 +14,7 @@ class TextFieldWithLabel extends StatelessWidget {
     required this.hint,
     this.isObscured,
     this.onChanged,
-    this.validator,
+    // this.validator,
   }) : super(key: key);
 
   final String label;
@@ -53,7 +53,7 @@ class TextFieldWithLabel extends StatelessWidget {
   }
 
   Widget _textField() {
-    return TextFormField(
+    return TextField(
       cursorColor: MAIN_COLOR_DARKER,
       maxLines: 1,
       obscureText: isObscured ?? false,
@@ -68,7 +68,7 @@ class TextFieldWithLabel extends StatelessWidget {
             borderRadius: BorderRadius.circular(_BORDER_RADIUS),
           )),
       onChanged: (value) => onChanged!(value),
-      validator: (value) => validator!(value),
+      // validator: (value) => validator!(value),
     );
   }
 }

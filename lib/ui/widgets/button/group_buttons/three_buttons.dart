@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -11,36 +12,37 @@ import 'package:food_delivery/utils/res/colors.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
 
 /// 3 circle buttons, orangeButton and textButton on signup/login screen
-
 class ThreeButtons extends StatelessWidget {
 
-  VoidCallback? buttonOrangeClicked;
+  final Function? buttonOrangeClicked;
 
-  ThreeButtons({Key? key, this.buttonOrangeClicked}) : super(key: key);
+  const ThreeButtons({Key? key, this.buttonOrangeClicked}) : super(key: key);
 
   final strGoogleSignIn = 'Sign-in with Google';
-  final String strBtnFullWidth = 'Create an Account';
-  final String _ALREADY_HAVE_AN_ACCOUNT = 'Already have an account?';
-  final String _SIGNIN = 'SignIn';
+  final strBtnFullWidth = 'Create an Account';
+  final _ALREADY_HAVE_AN_ACCOUNT = 'Already have an account?';
+  final _SIGNIN = 'SignIn';
 
   final COLOR_BTN_GOOGLE = TEXT_COLOR_INVERSED;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _ThreeOptionSignin(),
-          _GradientButtonFullWidth(),
-          _TextHightlightButtonFullWidth(),
-          const SizedBox(height: SPACER_XL)
-        ],
-      ),
+    return _threeButtons();
+  }
+
+  _threeButtons() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        _threeOptionSignin(),
+        _gradientButtonFullWidth(),
+        _textHighlightButtonFullWidth(),
+        const SizedBox(height: SPACER_XL)
+      ],
     );
   }
 
-  Widget _ThreeOptionSignin() {
+  _threeOptionSignin() {
     return FractionallySizedBox(
       widthFactor: 0.5,
       child: Row(
@@ -55,26 +57,18 @@ class ThreeButtons extends StatelessWidget {
     );
   }
 
-  Widget _GradientButtonFullWidth() {
-    return ButtonOrangeFullWidth(text: strBtnFullWidth, onCLick: buttonOrangeClicked,);
+  _gradientButtonFullWidth() {
+    return ButtonOrangeFullWidth(
+        text: strBtnFullWidth, onCLick: buttonOrangeClicked);
   }
 
-  Widget _TextHightlightButtonFullWidth() {
+  _textHighlightButtonFullWidth() {
     return Align(
         alignment: Alignment.center,
         child: TextButtonHighlight(
-            firstText: _ALREADY_HAVE_AN_ACCOUNT,
-            lastText: _SIGNIN,
+          firstText: _ALREADY_HAVE_AN_ACCOUNT,
+          lastText: _SIGNIN,
           onPressed: () => log('signin click'),
-        )
-    );
-  }
-
-  void CreateAccountClick() {
-    print('create account click');
-  }
-
-  void LoginClick() {
-    print('login click');
+        ));
   }
 }

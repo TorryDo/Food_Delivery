@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/ui/screens/signup_and_login/signup_screen.dart';
 import 'package:food_delivery/ui/widgets/appbar_welcome.dart';
 import 'package:food_delivery/ui/widgets/button/button_orange_fullwidth.dart';
 import 'package:food_delivery/ui/widgets/slider_intro.dart';
 import 'package:food_delivery/ui/widgets/text/text_orange_bold.dart';
-
+import 'package:food_delivery/utils/route_keys.dart';
+import 'package:get/get.dart';
 
 class FirstLaunchScreen extends StatelessWidget {
   const FirstLaunchScreen({Key? key}) : super(key: key);
@@ -29,20 +31,29 @@ class FirstLaunchScreen extends StatelessWidget {
                       EdgeInsets.only(top: TEXT_AND_SLIDER_PADDING_VERTICAL),
                   child: const SliderIntro(),
                 )),
-            Flexible(flex: 3, child: createAccountOrLogin())
+            Flexible(flex: 3, child: _twoBottomButtons())
           ]),
         ));
   }
 
-  Widget createAccountOrLogin() {
+  Widget _twoBottomButtons() {
     return Column(
       children: [
-        ButtonOrangeFullWidth(text: BUTTON_CREATE_ACCOUNT),
+        ButtonOrangeFullWidth(
+          text: BUTTON_CREATE_ACCOUNT,
+          onCLick: () {
+            Get.offNamed(SIGNUP_SCREEN_KEY);
+          },
+        ),
         Padding(
           padding: const EdgeInsets.only(top: 30.0),
           child: TextOrangeBold(text: TEXT_LOGIN),
         )
       ],
     );
+  }
+
+  _navigateToSignUpScreen() {
+    Get.to(const SignUpScreen());
   }
 }

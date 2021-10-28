@@ -1,12 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 
 class ButtonOrangeFullWidth extends StatelessWidget {
-
   final Function? onCLick;
 
-  const ButtonOrangeFullWidth({required this.text, this.onCLick, Key? key}) : super(key: key);
-
+  const ButtonOrangeFullWidth({required this.text, this.onCLick, Key? key})
+      : super(key: key);
 
   final String text;
 
@@ -20,25 +21,30 @@ class ButtonOrangeFullWidth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.fromLTRB(PADDING_HORIZONTALLY, PADDING_VERTICALLY, PADDING_HORIZONTALLY, 0.0),
-          child: SizedBox(
-            width: double.infinity,
-            height: BUTTON_HEIGHT,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(BORDER_RADIUS))
-                  ),
-                  backgroundColor: MaterialStateProperty.all(MAIN_COLOR_DARKER)
-              ),
-              onPressed: (() => onCLick ?? onButtonPressed()),
-              child: Text(text, style: TextStyle(fontSize: TEXT_BUTTON_SIZE)),
-            ),
-          ),
-        );
+      padding: EdgeInsets.fromLTRB(
+          PADDING_HORIZONTALLY, PADDING_VERTICALLY, PADDING_HORIZONTALLY, 0.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: BUTTON_HEIGHT,
+        child: ElevatedButton(
+          style: ButtonStyle(
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(BORDER_RADIUS))),
+              backgroundColor: MaterialStateProperty.all(MAIN_COLOR_DARKER)),
+          onPressed: (){
+            if(onCLick != null) {
+              onCLick!();
+            }else{
+              _onButtonPressed();
+            }
+          },
+          child: Text(text, style: TextStyle(fontSize: TEXT_BUTTON_SIZE)),
+        ),
+      ),
+    );
   }
 
-  void onButtonPressed(){
-    print('flutter sucks');
+  void _onButtonPressed() {
+    log('orange button has just been clicked');
   }
 }
