@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:food_delivery/utils/res/dimens.dart';
+import 'package:food_delivery/utils/widgets_warehouse.dart';
 
-class AppBar extends StatefulWidget {
+class MainAppBar extends StatefulWidget {
   final Function? startClick;
   final Function? middleClick;
   final Function? endClick;
@@ -12,9 +14,9 @@ class AppBar extends StatefulWidget {
 
   final Color? overrideMainColor;
 
-  const AppBar({
+  const MainAppBar({
     Key? key,
-    this.startClick = () => log('start clicked'),
+    this.startClick,
     this.middleClick,
     this.endClick,
     this.overrideStartWidget,
@@ -24,12 +26,33 @@ class AppBar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AppBarState createState() => _AppBarState();
+  _MainAppBarState createState() => _MainAppBarState();
 }
 
-class _AppBarState extends State<AppBar> {
+class _MainAppBarState extends State<MainAppBar> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return _appBar();
+  }
+
+  _appBar() {
+    return SizedBox(
+        width: double.infinity,
+        height: TOP_BAR_HEIGHT,
+        child: Stack(alignment: AlignmentDirectional.center, children: <Widget>[
+          Align(alignment: const Alignment(-0.9, 0.0), child: _startIcon()),
+          Align(alignment: Alignment.center, child: _middle()),
+          Align(alignment: const Alignment(0.85, 0.0), child: _end())
+        ]));
+  }
+
+  _startIcon() {
+    return IC_LEFT_ARROW;
+  }
+  _middle() {
+    return IC_LEFT_ARROW;
+  }
+  _end() {
+    return IC_LEFT_ARROW;
   }
 }
