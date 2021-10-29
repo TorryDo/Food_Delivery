@@ -4,7 +4,6 @@ import 'package:food_delivery/ui/widgets/appbar_welcome.dart';
 import 'package:food_delivery/ui/widgets/button/button_orange_fullwidth.dart';
 import 'package:food_delivery/ui/widgets/slider_intro.dart';
 import 'package:food_delivery/ui/widgets/text/text_orange_bold.dart';
-import 'package:food_delivery/utils/route_keys.dart';
 import 'package:get/get.dart';
 
 class FirstLaunchScreen extends StatelessWidget {
@@ -41,9 +40,7 @@ class FirstLaunchScreen extends StatelessWidget {
       children: [
         ButtonOrangeFullWidth(
           text: BUTTON_CREATE_ACCOUNT,
-          onCLick: () {
-            Get.offNamed(SIGNUP_SCREEN_KEY);
-          },
+          onCLick: () => _navigateToSignUpScreen(),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 30.0),

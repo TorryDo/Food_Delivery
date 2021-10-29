@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery/ui/screens/home/home_screen.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_bloc.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_screen.dart';
 import 'package:food_delivery/ui/screens/welcome_screen/first_launch_screen.dart';
 import 'package:food_delivery/ui/screens/welcome_screen/logo_screen.dart';
-import 'package:food_delivery/utils/route_keys.dart';
 import 'package:food_delivery/utils/res/colors.dart';
+import 'package:food_delivery/utils/route_keys.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as getTrans;
 
 import 'data/auth/auth_repository.dart';
 
@@ -27,14 +30,12 @@ class _MyAppState extends State<MyApp> {
     return _appWithMultiRepositoryProvider();
   }
 
-  _appWithMultiRepositoryProvider() {
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider<AuthRepository>(create: (_) => AuthRepository()),
-      ],
-      child: _appWithMultiBlocProvider(),
-    );
-  }
+  _appWithMultiRepositoryProvider() => MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider<AuthRepository>(create: (_) => AuthRepository()),
+        ],
+        child: _appWithMultiBlocProvider(),
+      );
 
   _appWithMultiBlocProvider() => MultiBlocProvider(
         providers: [
@@ -50,10 +51,12 @@ class _MyAppState extends State<MyApp> {
       theme:
           ThemeData(primarySwatch: Colors.blue, backgroundColor: THEME_COLOR),
       home: const FirstLaunchScreen(),
+      defaultTransition: getTrans.Transition.fade,
       getPages: [
         GetPage(name: WELCOME_SCREEN_KEY, page: () => const LogoScreen()),
         GetPage(name: SPLASH_SCREEN_KEY, page: () => const FirstLaunchScreen()),
         GetPage(name: SIGNUP_SCREEN_KEY, page: () => const SignUpScreen()),
+        GetPage(name: HOME_SCREEN, page: () => const HomeScreen()),
       ],
     );
   }

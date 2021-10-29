@@ -12,7 +12,6 @@ import 'package:food_delivery/ui/widgets/button/group_buttons/three_buttons.dart
 import 'package:food_delivery/ui/widgets/text/group_text/title_and_description.dart';
 import 'package:food_delivery/ui/widgets/text_field/textfield_with_label.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
-import 'package:food_delivery/utils/route_keys.dart';
 import 'package:get/get.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -41,10 +40,12 @@ class SignUpScreen extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
+
             _topAppBar(),
             _titleAndDescription(),
             _form(),
             _bottomButtons()
+
           ],
         ),
       ),
@@ -57,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
 
   void _leftButtonClick() {
     log('clicked at signup screen');
-    Get.offNamed(SPLASH_SCREEN_KEY);
+    Get.back();
   }
 
   _titleAndDescription() {
