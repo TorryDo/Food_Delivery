@@ -6,13 +6,13 @@ class Food {
   Float price;
   Float rating;
   Float calories;
-  bool isFavorited;
+  bool isLiked;
   String description;
   int quantity;
   List<FoodToppings> toppingList;
 
   Food(this.url, this.name, this.price, this.rating, this.calories,
-      this.isFavorited, this.description, this.quantity, this.toppingList);
+      this.isLiked, this.description, this.quantity, this.toppingList);
 }
 
 class FoodToppings {

@@ -59,3 +59,4 @@ const CIRCLE_BUTTON_SIZE = 30.0;
 /// rarely used
 
 const TOP_BAR_HEIGHT = 80.0;
+const BOTTOM_BAR_HEIGHT = 120.0;
