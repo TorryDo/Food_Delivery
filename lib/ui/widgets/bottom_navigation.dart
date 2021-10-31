@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
 import 'package:food_delivery/utils/widgets_warehouse.dart';
 
 class MainBottomNavigation extends StatefulWidget {
   final Function? mainButtonClick;
+  final List<ClickableIcon> fourClickableIcon;
 
-  const MainBottomNavigation({Key? key, this.mainButtonClick})
+  const MainBottomNavigation(
+      {Key? key, this.mainButtonClick, required this.fourClickableIcon})
       : super(key: key);
 
   final _bottomWidth = double.infinity;
@@ -31,9 +34,9 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
         width: widget._bottomWidth,
         child: Stack(children: [
           _bottomBarLayout(),
-          // _coupleButtons(),
+          _coupleButtons(const Alignment(-1.0, 0.6), [0, 1]), // left
           _mainButton(),
-          // _coupleButtons()
+          _coupleButtons(const Alignment(1.0, 0.6), [2, 3])   // right
         ]));
   }
 
@@ -44,9 +47,23 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
     );
   }
 
-  _coupleButtons() {
-    return Container(
-      color: Colors.redAccent,
+  _coupleButtons(Alignment alignment, List<int> iconPositionList) {
+    return Align(
+      alignment: alignment,
+      child: SizedBox(
+        width: (MediaQuery.of(context).size.width / 2.3),
+        height: BOTTOM_BAR_HEIGHT / 2,
+        // color: Colors.red,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: PADDING_HORIZONTALLY_S),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+            for(var i in iconPositionList)
+              widget.fourClickableIcon[i].iconWidget
+          ]),
+        ),
+      ),
     );
   }
 
@@ -137,7 +154,7 @@ class RoundedBottomNavigationPainter extends CustomPainter {
       ..lineTo(size.width, size.height)
       ..lineTo(0, size.height)
       ..lineTo(0, pointAY);
-    canvas.drawShadow(path, Colors.black, 20.0, true);
+    canvas.drawShadow(path, Colors.black, 30.0, false);
     path.close();
     canvas.drawPath(path, paint);
   }

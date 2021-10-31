@@ -50,7 +50,7 @@ const ICON_SIZE_XXS = 15.0;
 const ICON_SIZE_XS= 20.0;
 const ICON_SIZE_S = 23.0;
 const ICON_SIZE = 25.0;
-const ICON_SIZE_L = 40.0;
+const ICON_SIZE_L = 30.0;
 const ICON_SIZE_XL = 45.0;
 const ICON_SIZE_XXL = 50.0;
 
