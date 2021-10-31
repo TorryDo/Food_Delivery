@@ -13,7 +13,6 @@ Widget IC_LEFT_ARROW = SvgPicture.asset(
 );
 
 Widget LOGO({double? size}) {
-
   const LOGO_SIZE = 100.0;
 
   return SvgPicture.asset(
@@ -21,5 +20,14 @@ Widget LOGO({double? size}) {
     semanticsLabel: 'app logo',
     width: size ?? LOGO_SIZE,
     height: size ?? LOGO_SIZE,
+  );
+}
+
+Widget IC_SEARCH({double? size = ICON_SIZE_XL}) {
+  return SvgPicture.asset(
+    'assets/icons/ic_search.svg',
+    semanticsLabel: 'search icon',
+    width: size,
+    height: size,
   );
 }
