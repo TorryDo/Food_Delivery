@@ -25,7 +25,7 @@ this project is created to demonstrate my skill on flutter ^^
 
 - custom navigation bar
   <br/>
-  <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/248399769_985391698711558_8720122237174640417_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=tPDusncu3-QAX-eAmax&_nc_ht=scontent.fsgn2-4.fna&oh=69b459c0eaa83bfcbd6c0072262ae136&oe=61A5BB07" height="20">
+  <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/248399769_985391698711558_8720122237174640417_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=tPDusncu3-QAX-eAmax&_nc_ht=scontent.fsgn2-4.fna&oh=69b459c0eaa83bfcbd6c0072262ae136&oe=61A5BB07" height="200">
 
 
 ## Examples (youtube) . Relax, and chill ^^
