@@ -44,7 +44,7 @@ class TextFieldWithLabel extends StatelessWidget {
 
   Widget _title() {
     return Padding(
-      padding: const EdgeInsets.only(left: PADDING_HORIZONTALLY_L),
+      padding: const EdgeInsets.only(left: PADDING_HORIZONTALLY),
       child: Text(
         label,
         style: TextStyle(fontSize: _LABEL_SIZE, color: _LABEL_COLOR),

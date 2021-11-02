@@ -55,7 +55,7 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
         height: BOTTOM_BAR_HEIGHT / 2,
         // color: Colors.red,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: PADDING_HORIZONTALLY_S),
+          padding: const EdgeInsets.symmetric(horizontal: PADDING_HORIZONTALLY_XS),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -136,7 +136,7 @@ class RoundedBottomNavigationPainter extends CustomPainter {
 
     Paint paint = Paint()
       ..style = PaintingStyle.fill
-      ..color = THEME_COLOR_BASIC;
+      ..color = THEME_COLOR_CORE;
 
     Path path = Path()
       ..moveTo(pointAX, pointAY) // A

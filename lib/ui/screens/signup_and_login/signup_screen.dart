@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
   final _PASSWORD_HINT = 'Enter password';
 
   final _PADDING_VERTICALLY = PADDING_VERTICALLY;
-  final _PADDING_HORIZONTALLY = PADDING_HORIZONTALLY_XXL;
+  final _PADDING_HORIZONTALLY = PADDING_HORIZONTALLY_XL;
 
   @override
   Widget build(BuildContext context) {
