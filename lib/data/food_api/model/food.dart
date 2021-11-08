@@ -1,18 +1,17 @@
 import 'dart:ffi';
 
 class Food {
-  String url;
+  String imageUrl;
   String name;
-  Float price;
-  Float rating;
-  Float calories;
+  double price;
+  double rating;
+  double calories;
   bool isLiked;
   String description;
-  int quantity;
   List<FoodToppings> toppingList;
 
-  Food(this.url, this.name, this.price, this.rating, this.calories,
-      this.isLiked, this.description, this.quantity, this.toppingList);
+  Food(this.imageUrl, this.name, this.price, this.rating, this.calories,
+      this.isLiked, this.description, this.toppingList);
 }
 
 class FoodToppings {

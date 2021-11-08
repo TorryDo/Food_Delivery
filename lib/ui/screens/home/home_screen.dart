@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/ui/widgets/app_bar.dart';
 import 'package:food_delivery/ui/widgets/bottom_navigation.dart';
@@ -28,6 +29,25 @@ class HomeScreen extends StatefulWidget {
     'Banhmi',
     'Sandwich'
   ];
+
+  final FAKE_TOPPINGS = [
+    FoodToppings('🧀', 'Cheese', false),
+    FoodToppings('🥥', 'Coconut', false),
+    FoodToppings('🥚', 'Egg', false),
+    FoodToppings('🍅', 'Tomato', false),
+    FoodToppings('🍎', 'Apple', false),
+    FoodToppings('🍊', 'Orange', false),
+  ];
+
+  final FAKE_FOOD = Food(
+      'assets/images/img_burger.png',
+      'Big cheese burger',
+      69.99,
+      4.5,
+      300,
+      false,
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      []);
 
   final colorGreenLight = const Color(0x33A9E88B);
   final colorBorderGreen = const Color(0xFF3EC032);
@@ -131,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               children: [
                 for (var str in widget.FAKE_OPTIONS)
-                  _itemFoodCarousel('🍔', str, 'super delicious', 4.5, true)
+                  _itemFoodCarousel(widget.FAKE_FOOD.imageUrl, str, 'super delicious', 4.5, true)
               ],
             ))
       ],
@@ -173,7 +193,20 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(40.0),
           color: THEME_COLOR_CORE,
         ),
+        child: _cardFood(uri, name, description, rating, isLiked),
       ),
+    );
+  }
+
+  Widget _cardFood(String uri, String name, String description, double rating,
+      bool isLiked) {
+    return Column(
+      children: [
+        Flexible(flex: 1,child: Image.asset(uri)),
+        Text(name),
+        Text(description, style: const TextStyle(fontSize: FONT_SIZE), overflow: TextOverflow.clip),
+        const Text('⭐')
+      ],
     );
   }
 
