@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery/data/food_api/food_api_adapter.dart';
+import 'package:food_delivery/data/food_api/food_repository.dart';
 import 'package:food_delivery/ui/screens/home/home_screen.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_bloc.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_screen.dart';
@@ -33,6 +35,8 @@ class _MyAppState extends State<MyApp> {
   _appWithMultiRepositoryProvider() => MultiRepositoryProvider(
         providers: [
           RepositoryProvider<AuthRepository>(create: (_) => AuthRepository()),
+          RepositoryProvider<FoodRepository>(
+              create: (_) => FoodRepository(FoodApiAdapterImpl())),
         ],
         child: _appWithMultiBlocProvider(),
       );

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/data/food_api/model/food_category.dart';
 
@@ -55,7 +57,7 @@ Future<String> getFakeFoodApi() async {
         fakeFoodToppings),
   ]));
 
-  foodCategoryList.add(FoodCategory("🍔", "Hamburger", [
+  foodCategoryList.add(FoodCategory("🍔", "Pizza", [
     Food(
         'assets/images/img_burger.png',
         'Big cheese burger',
@@ -93,7 +95,7 @@ Future<String> getFakeFoodApi() async {
         'Our simple classic cheeseburger begins with a 100% pure...',
         fakeFoodToppings),
   ]));
-  foodCategoryList.add(FoodCategory("🍔", "Hamburger", [
+  foodCategoryList.add(FoodCategory("🍔", "Sausage", [
     Food(
         'assets/images/img_burger.png',
         'Big cheese burger',
@@ -132,5 +134,7 @@ Future<String> getFakeFoodApi() async {
         fakeFoodToppings),
   ]));
 
-  return foodCategoryList.toString();
+
+
+  return jsonEncode(foodCategoryList);
 }
