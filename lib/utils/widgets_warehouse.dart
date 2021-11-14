@@ -12,6 +12,20 @@ Widget IC_LEFT_ARROW = SvgPicture.asset(
   height: ICON_SIZE_L,
 );
 
+Widget IC_BURGER_MENU = SvgPicture.asset(
+  'assets/icons/ic_burger.svg',
+  semanticsLabel: 'left arrow',
+  width: ICON_SIZE_L,
+  height: ICON_SIZE_L,
+);
+
+Widget IC_USER = SvgPicture.asset(
+  'assets/icons/ic_user.svg',
+  semanticsLabel: 'left arrow',
+  width: ICON_SIZE_XL,
+  height: ICON_SIZE_XL,
+);
+
 Widget LOGO({double? size}) {
   const LOGO_SIZE = 100.0;
 

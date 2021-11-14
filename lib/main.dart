@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery/data/food_api/food_api_adapter.dart';
 import 'package:food_delivery/data/food_api/food_repository.dart';
+import 'package:food_delivery/ui/screens/food_detail/food_detail_screen.dart';
 import 'package:food_delivery/ui/screens/home/home_screen.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_bloc.dart';
 import 'package:food_delivery/ui/screens/signup_and_login/signup_screen.dart';
@@ -61,6 +62,7 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: SPLASH_SCREEN_KEY, page: () => const FirstLaunchScreen()),
         GetPage(name: SIGNUP_SCREEN_KEY, page: () => const SignUpScreen()),
         GetPage(name: HOME_SCREEN, page: () => HomeScreen()),
+        GetPage(name: FOOD_DETAIL_SCREEN, page: () => const FoodDetailScreen()),
       ],
     );
   }

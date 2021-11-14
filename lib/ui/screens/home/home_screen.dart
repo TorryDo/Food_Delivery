@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,10 +6,12 @@ import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/data/food_api/model/food_category.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/ui/screens/home/widget/item_food_cardview.dart';
-import 'package:food_delivery/ui/widgets/app_bar.dart';
+import 'package:food_delivery/ui/widgets/top_bar.dart';
 import 'package:food_delivery/ui/widgets/bottom_navigation.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
+import 'package:food_delivery/utils/route_keys.dart';
+import 'package:get/route_manager.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +21,7 @@ class HomeScreen extends StatefulWidget {
 
   final ENJOY_DELICIOUS_FOOD = 'Enjoy Delicious food';
   final POPULAR_RESTAURANTS = 'Popular restaurants';
-  final VIEW_ALL = 'View all';
+  final VIEW_ALL = 'View all >';
 
   final colorGreenLight = const Color(0x33A9E88B);
   final colorBorderGreen = const Color(0xFF3EC032);
@@ -71,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _topBar() {
-    return const MainTopBar();
+    return MainTopBar();
   }
 
   _topComponent() {
@@ -167,7 +170,9 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 /** FAKE FOOD LIST HERE */
                 for (var foodItem in widget.getFakeFoodList())
-                  ItemFoodCardView(foodItem)
+                  GestureDetector(
+                      onTap: _navigateToFoodDetailScreen,
+                      child: ItemFoodCardView(foodItem))
               ],
             ))
       ],
@@ -183,7 +188,8 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {},
             child: Text(
               widget.VIEW_ALL,
-              style: const TextStyle(color: Colors.orange),
+              style: const TextStyle(
+                  color: Colors.orange, decoration: TextDecoration.underline),
             ))
       ]),
     );
@@ -241,5 +247,10 @@ class _HomeScreenState extends State<HomeScreen> {
           color: textColor, fontWeight: FontWeight.bold, fontSize: fontSize),
       textAlign: TextAlign.start,
     );
+  }
+
+  // functions
+  void _navigateToFoodDetailScreen() {
+    Get.toNamed(FOOD_DETAIL_SCREEN);
   }
 }
