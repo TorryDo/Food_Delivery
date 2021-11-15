@@ -8,7 +8,7 @@ class ClickableIcon {
 
   Widget get getClickableIcon {
     return GestureDetector(
-      onTap: onCLick != null ? onCLick!() : () {},
+      onTap: () => onCLick != null ? onCLick!() : () {},
       child: iconWidget,
     );
   }

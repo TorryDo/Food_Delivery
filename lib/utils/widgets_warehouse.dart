@@ -8,8 +8,8 @@ Widget IC_NULL = SvgPicture.asset('assets/icons/ic_question_mark.svg',
 Widget IC_LEFT_ARROW = SvgPicture.asset(
   'assets/icons/ic_left_arrow.svg',
   semanticsLabel: 'left arrow',
-  width: ICON_SIZE_L,
-  height: ICON_SIZE_L,
+  width: ICON_SIZE_XL,
+  height: ICON_SIZE_XL,
 );
 
 Widget IC_BURGER_MENU = SvgPicture.asset(

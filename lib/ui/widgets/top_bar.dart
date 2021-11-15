@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
@@ -43,7 +45,10 @@ class _MainTopBarState extends State<MainTopBar> {
   _startIcon() {
     return widget.startClickableIcon != null
         ? widget.startClickableIcon!.getClickableIcon
-        : ClickableIcon(iconWidget: IC_BURGER_MENU).getClickableIcon;
+        : ClickableIcon(
+                onCLick: () => log("onClick didn't being defined"),
+                iconWidget: IC_BURGER_MENU)
+            .getClickableIcon;
   }
 
   _middle() {

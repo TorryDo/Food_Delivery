@@ -6,8 +6,8 @@ import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/data/food_api/model/food_category.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/ui/screens/home/widget/item_food_cardview.dart';
-import 'package:food_delivery/ui/widgets/top_bar.dart';
 import 'package:food_delivery/ui/widgets/bottom_navigation.dart';
+import 'package:food_delivery/ui/widgets/top_bar.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
 import 'package:food_delivery/utils/route_keys.dart';
@@ -28,16 +28,19 @@ class HomeScreen extends StatefulWidget {
 
   var _userChoseNumber = 0;
 
-  List<Food> getFakeFoodList() => [
+  List<Food> getFakeFoodList() {
+    var superLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum tincidunt ligula nec pretium. Morbi eleifend felis ipsum, sed rutrum sem iaculis ac. Mauris vel urna non diam interdum vehicula. Phasellus et tempor enim. Sed ut elit mauris. Quisque nec luctus augue. Vivamus fermentum purus odio, quis ultricies libero convallis et. Nullam ac mollis nunc, quis dignissim augue.";
+    return [
         Food('assets/images/img_burger.png', 'Big cheese burger', 6, 4.5, 300,
-            false, 'this burger is super delicious', []),
+            false, superLongText, []),
         Food('assets/images/img_burger.png', 'Medium apple burger', 6, 4.5, 300,
-            false, 'this burger is super delicious', []),
+            false, superLongText, []),
         Food('assets/images/img_burger.png', 'Small beef burger', 6, 4.5, 300,
-            false, 'this burger is super delicious', []),
+            false, superLongText, []),
         Food('assets/images/img_burger.png', 'Unexist pork burger', 6, 4.5, 300,
-            false, 'this burger is super delicious', []),
+            false, superLongText, []),
       ];
+  }
 
   List<FoodCategory> getFakeFoodCategory() {
     return [
@@ -171,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 /** FAKE FOOD LIST HERE */
                 for (var foodItem in widget.getFakeFoodList())
                   GestureDetector(
-                      onTap: _navigateToFoodDetailScreen,
+                      onTap: () => _navigateToFoodDetailScreen(foodItem),
                       child: ItemFoodCardView(foodItem))
               ],
             ))
@@ -250,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // functions
-  void _navigateToFoodDetailScreen() {
-    Get.toNamed(FOOD_DETAIL_SCREEN);
+  void _navigateToFoodDetailScreen(Food food) {
+    Get.toNamed(FOOD_DETAIL_SCREEN, arguments: food);
   }
 }

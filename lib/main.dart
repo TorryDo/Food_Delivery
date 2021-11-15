@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: SPLASH_SCREEN_KEY, page: () => const FirstLaunchScreen()),
         GetPage(name: SIGNUP_SCREEN_KEY, page: () => const SignUpScreen()),
         GetPage(name: HOME_SCREEN, page: () => HomeScreen()),
-        GetPage(name: FOOD_DETAIL_SCREEN, page: () => const FoodDetailScreen()),
+        GetPage(name: FOOD_DETAIL_SCREEN, page: () => FoodDetailScreen()),
       ],
     );
   }
