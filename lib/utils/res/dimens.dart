@@ -41,6 +41,7 @@ const SPACER_XXL = 30.0;
 const BUTTON_HEIGHT = 40.0;
 const BUTTON_HEIGHT_L = 50.0;
 const BUTTON_HEIGHT_XL = 60.0;
+const BUTTON_HEIGHT_XXL = 80.0;
 
 const BORDER_RADIUS = 15.0;
 const BORDER_RADIUS_L = 20.0;

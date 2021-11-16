@@ -4,7 +4,7 @@ import 'package:flutter/painting.dart';
 const THEME_COLOR = Color(0xFFF8FBFF);
 const THEME_COLOR_CORE = Colors.white;
 
-const MAIN_COLOR = Color(0xFFF9881F);
+const MAIN_COLOR = Color(0xFFFF9127);
 const MAIN_COLOR_DARKER = Color(0xFFFF774C);
 
 const GREY_LIGHTER = Color(0xFFEEEEEE);

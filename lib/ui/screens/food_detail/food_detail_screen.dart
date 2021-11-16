@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
-import 'package:food_delivery/ui/widgets/text/title_l.dart';
+import 'package:food_delivery/ui/widgets/button/button_orange_fullwidth.dart';
+import 'package:food_delivery/ui/widgets/text/text_helper.dart';
 import 'package:food_delivery/ui/widgets/top_bar.dart';
 import 'package:food_delivery/utils/device_spec.dart';
 import 'package:food_delivery/utils/res/colors.dart';
@@ -14,6 +16,7 @@ class FoodDetailScreen extends StatefulWidget {
   FoodDetailScreen({Key? key}) : super(key: key);
 
   Food? _food;
+  int _quantity = 0;
 
   Food _getFood() {
     if (_food != null) return _food!;
@@ -30,6 +33,8 @@ class FoodDetailScreen extends StatefulWidget {
 
   final _default_horizontal_space = 30.0;
   final _default_vertical_space = 20.0;
+
+  final _TOPPING_FOR_YOU = "Toppings for you";
 }
 
 class _FoodDetailScreenState extends State<FoodDetailScreen> {
@@ -54,7 +59,20 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                     const SizedBox(height: PADDING_VERTICALLY_XXL),
                     _titleAndInfo(),
                     const SizedBox(height: PADDING_VERTICALLY_XL),
-                    _expandableDescription()
+                    _expandableDescription(),
+                    const SizedBox(height: PADDING_VERTICALLY_XL),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: widget._default_horizontal_space),
+                      child: Align(
+                          alignment: const Alignment(-1.0, 0),
+                          child: _quantityButton()),
+                    ),
+                    const SizedBox(height: PADDING_VERTICALLY_XL),
+                    _toppingComponent(),
+                    const SizedBox(height: PADDING_VERTICALLY_XXL),
+                    _buttonAddToCart(),
+                    const SizedBox(height: PADDING_VERTICALLY_XXL),
                   ],
                 ),
               ),
@@ -120,8 +138,63 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
     );
   }
 
-  Widget _quantityButton(){
-    return
+  Widget _quantityButton() {
+    const buttonHeight = BUTTON_HEIGHT_XL;
+    const buttonWidth = buttonHeight * 3;
+
+    return Container(
+      height: buttonHeight,
+      width: buttonWidth,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(50)),
+        gradient: LinearGradient(
+            colors: [
+              MAIN_COLOR,
+              MAIN_COLOR_DARKER,
+            ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(1.0, 0.0),
+            stops: [0.5, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: Row(
+        children: [
+          Flexible(
+              flex: 1,
+              child: MaterialButton(
+                  child: const Text('-'),
+                  onPressed: () => setState(() {
+                        widget._quantity--;
+                      }))),
+          Text(widget._quantity.toString()),
+          Flexible(
+              flex: 1,
+              child: MaterialButton(
+                  child: const Text('+'),
+                  onPressed: () => setState(() {
+                        widget._quantity++;
+                      }))),
+        ],
+      ),
+    );
+  }
+
+  _toppingComponent() {
+    final vSpacer = PADDING_VERTICALLY;
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: widget._default_horizontal_space),
+        child: titleM(widget._TOPPING_FOR_YOU),
+      ),
+      SizedBox(height: vSpacer),
+      Container(width: double.infinity, height: 100.0, color: Colors.orange)
+    ]);
+  }
+
+  Widget _buttonAddToCart() {
+    return const ButtonOrangeFullWidth(text: 'Add to car');
   }
 
   // --------------- functions -------------------

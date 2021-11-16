@@ -8,3 +8,10 @@ titleL(String str, {TextStyle? textStyle}) => Text(str,
             fontWeight: FontWeight.bold,
             color: TEXT_COLOR,
             fontSize: FONT_SIZE_XXXL));
+
+titleM(String str, {TextStyle? textStyle}) => Text(str,
+    style: textStyle ??
+        const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: TEXT_COLOR,
+            fontSize: FONT_SIZE_XL));
