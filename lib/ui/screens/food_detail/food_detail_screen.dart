@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery/data/food_api/model/food.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/ui/widgets/button/button_orange_fullwidth.dart';
@@ -68,7 +71,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                           alignment: const Alignment(-1.0, 0),
                           child: _quantityButton()),
                     ),
-                    const SizedBox(height: PADDING_VERTICALLY_XL),
+                    const SizedBox(height: PADDING_VERTICALLY_XXXL),
                     _toppingComponent(),
                     const SizedBox(height: PADDING_VERTICALLY_XXL),
                     _buttonAddToCart(),
@@ -159,28 +162,21 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
       ),
       child: Row(
         children: [
-          Flexible(
-              flex: 1,
-              child: MaterialButton(
-                  child: const Text('-'),
-                  onPressed: () => setState(() {
-                        widget._quantity--;
-                      }))),
-          Text(widget._quantity.toString()),
-          Flexible(
-              flex: 1,
-              child: MaterialButton(
-                  child: const Text('+'),
-                  onPressed: () => setState(() {
-                        widget._quantity++;
-                      }))),
+          Flexible(flex: 1, child: _minusIcon()),
+          Text(widget._quantity.toString(), style: const TextStyle(color: TEXT_COLOR_INVERSED)),
+          Flexible(flex: 1, child: _plusIcon()),
         ],
       ),
     );
   }
 
   _toppingComponent() {
-    final vSpacer = PADDING_VERTICALLY;
+    const vSpacer = PADDING_VERTICALLY;
+
+    final toppingList = widget._getFood().toppingList;
+    log('list size = ${toppingList.length}');
+
+    const toppingHeight = BUTTON_HEIGHT_XL;
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
@@ -189,12 +185,48 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
         child: titleM(widget._TOPPING_FOR_YOU),
       ),
       SizedBox(height: vSpacer),
-      Container(width: double.infinity, height: 100.0, color: Colors.orange)
+      SizedBox(
+        width: double.infinity,
+        height: toppingHeight,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: toppingList.length,
+            itemBuilder: (context, i) {
+              return _itemTopping(toppingList[i]);
+            }),
+      )
     ]);
   }
 
+  Widget _itemTopping(FoodToppings foodToppings) {
+    const toppingWidth = BUTTON_HEIGHT * 4;
+
+    final hPadding = widget._default_horizontal_space;
+    const borderWidth = 2.0;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: hPadding),
+      child: Container(
+        width: toppingWidth,
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            border: Border.all(color: MAIN_COLOR, width: borderWidth),
+            color: THEME_COLOR_CORE),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _loadToppingIcon(foodToppings.url),
+            Text(foodToppings.name,
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(width: PADDING_HORIZONTALLY)
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buttonAddToCart() {
-    return const ButtonOrangeFullWidth(text: 'Add to car');
+    return const ButtonOrangeFullWidth(text: 'Add to cart');
   }
 
   // --------------- functions -------------------
@@ -212,4 +244,21 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
   _ratingStar(double stars) => Text('⭐ $stars');
 
   _calories(double calo) => Text('🔥 $calo cal');
+
+  _loadToppingIcon(String link) => Padding(
+    padding: const EdgeInsets.all(5.0),
+    child: SvgPicture.asset(link),
+  );
+
+  _minusIcon() => MaterialButton(
+      child: const Text('-', style: TextStyle(color: TEXT_COLOR_INVERSED)),
+      onPressed: () => setState(() {
+            widget._quantity--;
+          }));
+
+  _plusIcon() => MaterialButton(
+      child: const Text('+', style: TextStyle(color: TEXT_COLOR_INVERSED)),
+      onPressed: () => setState(() {
+            widget._quantity++;
+          }));
 }

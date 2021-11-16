@@ -28,17 +28,30 @@ class HomeScreen extends StatefulWidget {
 
   var _userChoseNumber = 0;
 
+  List<FoodToppings> getFakeToppingList(){
+    const defaultIcon = 'assets/icons/ic_applogo.svg';
+    return [
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+      FoodToppings(defaultIcon, 'Cheese', false),
+    ];
+  }
+
   List<Food> getFakeFoodList() {
     var superLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum tincidunt ligula nec pretium. Morbi eleifend felis ipsum, sed rutrum sem iaculis ac. Mauris vel urna non diam interdum vehicula. Phasellus et tempor enim. Sed ut elit mauris. Quisque nec luctus augue. Vivamus fermentum purus odio, quis ultricies libero convallis et. Nullam ac mollis nunc, quis dignissim augue.";
     return [
         Food('assets/images/img_burger.png', 'Big cheese burger', 6, 4.5, 300,
-            false, superLongText, []),
+            false, superLongText, getFakeToppingList()),
         Food('assets/images/img_burger.png', 'Medium apple burger', 6, 4.5, 300,
-            false, superLongText, []),
+            false, superLongText, getFakeToppingList()),
         Food('assets/images/img_burger.png', 'Small beef burger', 6, 4.5, 300,
-            false, superLongText, []),
+            false, superLongText, getFakeToppingList()),
         Food('assets/images/img_burger.png', 'Unexist pork burger', 6, 4.5, 300,
-            false, superLongText, []),
+            false, superLongText, getFakeToppingList()),
       ];
   }
 
