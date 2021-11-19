@@ -61,6 +61,6 @@ class AppbarWelcome extends StatelessWidget {
       rightButtonClick!();
       return;
     }
-    Get.offAndToNamed(HOME_SCREEN);
+    Get.offAndToNamed(HOME_SCREEN_KEY);
   }
 }

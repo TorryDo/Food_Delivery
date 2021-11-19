@@ -232,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: iconSize, height: iconSize)),
         ClickableIcon(
             onCLick: () {},
-            iconWidget: SvgPicture.asset('assets/icons/ic_shopping_cart.svg',
+            iconWidget: SvgPicture.asset('assets/icons/ic_user.svg',
                 width: iconSize, height: iconSize))
       ],
     );
@@ -265,8 +265,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // functions
+  // navigate functions
   void _navigateToFoodDetailScreen(Food food) {
-    Get.toNamed(FOOD_DETAIL_SCREEN, arguments: food);
+    Get.toNamed(FOOD_DETAIL_SCREEN_KEY, arguments: food);
+  }
+
+  void _navigateToShoppingCartScreen(){
+
   }
 }

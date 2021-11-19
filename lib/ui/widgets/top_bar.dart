@@ -2,10 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery/ui/clickable_icon.dart';
 import 'package:food_delivery/utils/res/colors.dart';
 import 'package:food_delivery/utils/res/dimens.dart';
+import 'package:food_delivery/utils/route_keys.dart';
 import 'package:food_delivery/utils/widgets_warehouse.dart';
+import 'package:get/get.dart';
 
 class MainTopBar extends StatefulWidget {
   final Color? overrideMainColor;
@@ -74,6 +77,18 @@ class _MainTopBarState extends State<MainTopBar> {
   }
 
   _end() {
-    return IC_USER;
+    final iconSize = ICON_SIZE_L;
+    return GestureDetector(
+      onTap: () => _navigateToShoppingCartScreen(),
+      child: SvgPicture.asset(
+        'assets/icons/ic_shopping_cart.svg',
+        width: iconSize,
+        height: iconSize,
+      ),
+    );
+  }
+
+  void _navigateToShoppingCartScreen() {
+    Get.toNamed(SHOPPING_CART_SCREEN_KEY);
   }
 }

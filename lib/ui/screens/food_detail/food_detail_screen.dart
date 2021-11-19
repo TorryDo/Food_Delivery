@@ -19,7 +19,7 @@ class FoodDetailScreen extends StatefulWidget {
   FoodDetailScreen({Key? key}) : super(key: key);
 
   Food? _food;
-  int _quantity = 0;
+  int _quantity = 1;
 
   Food _getFood() {
     if (_food != null) return _food!;
@@ -163,7 +163,8 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
       child: Row(
         children: [
           Flexible(flex: 1, child: _minusIcon()),
-          Text(widget._quantity.toString(), style: const TextStyle(color: TEXT_COLOR_INVERSED)),
+          Text(widget._quantity.toString(),
+              style: const TextStyle(color: TEXT_COLOR_INVERSED)),
           Flexible(flex: 1, child: _plusIcon()),
         ],
       ),
@@ -176,7 +177,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
     final toppingList = widget._getFood().toppingList;
     log('list size = ${toppingList.length}');
 
-    const toppingHeight = BUTTON_HEIGHT_XL;
+    const toppingHeight = BUTTON_HEIGHT_XXL;
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
@@ -184,7 +185,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
             EdgeInsets.symmetric(horizontal: widget._default_horizontal_space),
         child: titleM(widget._TOPPING_FOR_YOU),
       ),
-      SizedBox(height: vSpacer),
+      const SizedBox(height: vSpacer),
       SizedBox(
         width: double.infinity,
         height: toppingHeight,
@@ -192,7 +193,9 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
             scrollDirection: Axis.horizontal,
             itemCount: toppingList.length,
             itemBuilder: (context, i) {
-              return _itemTopping(toppingList[i]);
+              return GestureDetector(
+                  onTap: () => _onToppingClicked(i),
+                  child: _itemTopping(toppingList[i]));
             }),
       )
     ]);
@@ -201,17 +204,29 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
   Widget _itemTopping(FoodToppings foodToppings) {
     const toppingWidth = BUTTON_HEIGHT * 4;
 
+    const bodyColor = THEME_COLOR_CORE;
+
     final hPadding = widget._default_horizontal_space;
-    const borderWidth = 2.0;
+    final vPadding = PADDING_VERTICALLY_XS;
+
+    const borderSize = 2.5;
+    final borderColor = foodToppings.isChose ? MAIN_COLOR : bodyColor;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: hPadding),
+      padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
       child: Container(
         width: toppingWidth,
         decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  offset: const Offset(0, 0),
+                  blurRadius: 5,
+                  spreadRadius: 3)
+            ],
             borderRadius: const BorderRadius.all(Radius.circular(50)),
-            border: Border.all(color: MAIN_COLOR, width: borderWidth),
-            color: THEME_COLOR_CORE),
+            border: Border.all(color: borderColor, width: borderSize),
+            color: bodyColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -235,6 +250,21 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
     print('back to home screen from food detail screen');
   }
 
+  void _onToppingClicked(int position) {
+    if (widget._food == null) return;
+    try {
+      bool tempChose = widget._food!.toppingList[position].isChose;
+
+      setState(() {
+        widget._food!.toppingList[position].isChose = !tempChose;
+      });
+
+      log('onToppignClicked');
+    } on Exception catch (e) {
+      log(e.toString());
+    }
+  }
+
   // -------------- fake widget -------------------
   _loadMainImage() => Padding(
         padding: const EdgeInsets.all(PADDING_HORIZONTALLY_XL),
@@ -246,9 +276,9 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
   _calories(double calo) => Text('🔥 $calo cal');
 
   _loadToppingIcon(String link) => Padding(
-    padding: const EdgeInsets.all(5.0),
-    child: SvgPicture.asset(link),
-  );
+        padding: const EdgeInsets.all(5.0),
+        child: SvgPicture.asset(link),
+      );
 
   _minusIcon() => MaterialButton(
       child: const Text('-', style: TextStyle(color: TEXT_COLOR_INVERSED)),
