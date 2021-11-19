@@ -4,32 +4,51 @@
 this project is created to demonstrate my skill on flutter ^^
 
 
+## I, What I've learnt from this project?
 
-
-## What I have learnt from this project?
-
-- Learn Flutter from Android development base
+- Flutter syntax
 - Flutter UI
-- Basic dart syntax
-- Custom view (see the image below)
+- Development concept
+- Custom view
+- learn Flutter from android development base
+- and so on ... 
 
+## II, References
+figma : https://www.figma.com/file/sfnG1gYFoa9Is1xolz8UyP/Food-Delivery?node-id=1%3A120
+</br>
+p/s : This is not my production, i cloned it on community section, just modified a bit
 
-## Screenshots
-- welcome screen
-  <br/>
-  <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.15752-9/s1080x2048/246844610_1062733754529628_4281279289003785118_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_ohc=RsSnHcVcKLUAX9nO1CY&_nc_ht=scontent.fsgn2-6.fna&oh=9d2439360ac1ca7cf5f785de26279511&oe=61A546E5" width="300">
+## III, Screenshots
+> <h4>welcome screen</h4>
+  <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.15752-9/256802770_632433161450341_714216569685456345_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=TQYDm3hwX1wAX9BhXlp&_nc_ht=scontent.fsgn2-2.fna&oh=5f987406ebaf76e6d8df7c01e9cabb50&oe=61BB6173" width="300">
 
-- signup screen
-  <br/>
-  <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/s1080x2048/247930037_253566296735626_5641759937714845028_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_ohc=kEQR5GaCFOgAX-NDncn&tn=kiNf16G3oX_J6Gj0&_nc_ht=scontent.fsgn2-4.fna&oh=93302fd9231f80215d7997f219809de5&oe=61A21C08" width="300">
+  <h1>______________________</h1>
 
-- custom navigation bar
-  <br/>
+> <h4>signup screen</h4>
+  <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.15752-9/257710630_3041920399353532_4224721467375502671_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=phWBMx8akw4AX_Uymjf&_nc_ht=scontent.fsgn2-2.fna&oh=b5908252481e2a7eb5de481848defaf4&oe=61BBDD4B" width="300">
+
+  <h1>______________________</h1>
+
+> <h4>home screen</h4>
+  <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.15752-9/258853221_4265168813592633_1286725772396348618_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Zw5XtUmzO2IAX_tDfs-&_nc_ht=scontent.fsgn2-2.fna&oh=da1ee3e044f8f7cbabd4723196749b33&oe=61BCD475" width="300">
+
+  <h1>______________________</h1>
+
+  > <h4>food detail screen</h4>
+  <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/258744905_626316515208892_9084444084524166532_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_ohc=PKl1DtFzWn0AX-hnLxy&_nc_ht=scontent.fsgn2-4.fna&oh=82ca4250e80236dcda058041b423523a&oe=61BDB5D7" width="300">
+
+  <h1>______________________</h1>
+
+> <h4>custom navigation bar</h4>
   <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/248399769_985391698711558_8720122237174640417_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=tPDusncu3-QAX-eAmax&_nc_ht=scontent.fsgn2-4.fna&oh=69b459c0eaa83bfcbd6c0072262ae136&oe=61A5BB07" height="200">
 
 
-## Examples (youtube) . Relax, and chill ^^
+## IV, Time consuming
+ October to November (2021)
+
+## X, Examples (youtube). Relax, and chill ^^
 
 [![Watch the video](https://icdn.digitaltrends.com/image/digitaltrends/grubhub-2.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 
   
