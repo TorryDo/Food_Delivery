@@ -1,23 +1,12 @@
 # Food delivery - Flutter app
 
-this project is created to demonstrate my skill on flutter ^^
-
-## I, What I've learnt from this project?
-
-- Flutter syntax
-- Flutter UI
-- Development concept
-- Custom view
-- learn Flutter from android development base
-- and so on ...
-
-## II, References
+## I, References
 
 figma : https://www.figma.com/file/sfnG1gYFoa9Is1xolz8UyP/Food-Delivery?node-id=1%3A120
 </br>
 p/s : This is not my production, i cloned it on community section, just modified a bit
 
-## III, Screenshots
+## II, Screenshots
 
 > <h4>welcome screen</h4>
 >   <img src="preview image/splash.jpg" width="300">
@@ -42,7 +31,7 @@ p/s : This is not my production, i cloned it on community section, just modified
 > <h4>custom navigation bar</h4>
 > <img src="preview image/navbar.png">
 
-## IV, Time consuming
+## III, Time consuming
 
 October to November (2021)
 
