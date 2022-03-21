@@ -4,7 +4,7 @@
 
 figma : https://www.figma.com/file/sfnG1gYFoa9Is1xolz8UyP/Food-Delivery?node-id=1%3A120
 </br>
-p/s : This is not my production, i cloned it on community section, just modified a bit
+p/s : This Figma design is not my production, i cloned it on community section, just modified a bit
 
 ## II, Screenshots
 
